@@ -14,4 +14,17 @@ RSpec.describe 'User Services' do
       expect(user.email).to eq('bigchungus@gmail.com')
     end
   end
+  describe 'repo artworks' do
+    it 'returns liked artworks' do
+      stub = WebmockStubs.mock_artworks
+      stub_request(:get, 'https://www.localhost:3000/api/v1/users/1/rated_art')
+      .to_return(status: 200, body: stub, headers: {})
+
+      artworks = ArtworksFacade.get_rated_art(1)
+
+      expect(artworks[0].title).to eq('Campbells')
+      expect(artworks[1].title).to eq('Violin')
+      expect(artworks[2].title).to eq('Monroe')
+    end
+  end
 end
