@@ -19,6 +19,10 @@ RSpec.configure do |config|
   config.before(:each) do
     stub_request(:get, 'https://www.localhost:3000/api/v1/users/1')
     .to_return(status: 200, body: WebmockStubs.mock_user, headers: {})
+    stub_request(:post, 'http://www.localhost:3000/api/v1/users')
+    .to_return(status: 204, body: WebmockStubs.mock_user, headers: {})
+    stub_request(:get, 'https://www.localhost:3000/api/v1/artworks')
+    .to_return(status: 200, body: WebmockStubs.mock_artworks, headers: {})
   end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
