@@ -5,6 +5,6 @@ class UsersService
 
   def self.get_user(user_id)
     response = UsersService.connect.get("/api/v1/users/#{user_id}")
-    JSON.parse(response.body, symbomlize_names: true)
+    JSON.parse(response.body, symbolize_names: true)
   end
 end
