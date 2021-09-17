@@ -6,12 +6,12 @@ class UsersFacade
 
   def self.login_user(omniauth)
     user_body = { data: {
-      id: nil,
+      id: omniauth[:id],
       type: 'user',
       attributes: {
-        name: omniauth['info']['name'],
-        email: omniauth['info']['email'],
-        token: omniauth['credentials']['token']
+        name: omniauth[:info][:name],
+        email: omniauth[:info][:email],
+        token: omniauth[:credentials][:token]
         }
       }
     }
