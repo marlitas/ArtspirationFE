@@ -7,7 +7,7 @@ RSpec.describe 'index' do
       user_stub = WebmockStubs.mock_user
       stub_request(:get, 'https://www.localhost:3000/api/v1/users/1')
       .to_return(status: 200, body: user_stub, headers: {})
-      art_stub = WebmocksStubs.mock_artworks
+      art_stub = WebmockStubs.mock_artworks
       stub_request(:get, 'https://www.localhost:3000/api/v1/users/1/rated_art')
       .to_return(status: 200, body: art_stub, headers: {})
 
@@ -50,6 +50,10 @@ RSpec.describe 'index' do
 
     describe 'links' do
       it 'can link to artwork show page' do
+
+      end
+
+      it 'can link to artist webpage' do
 
       end
     end
