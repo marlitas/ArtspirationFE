@@ -1,0 +1,12 @@
+<h1><%= @user.name %>'s Favorite Artwork</h1>
+
+<div class="row">
+  <% @artworks.each do |artwork| %>
+  <div class="art col-4" id="<%= artwork.id %>">
+    <img src= "<%= artwork.url %>" alt= "<%= artwork.title %>" >
+    <h4><%= artwork.title %></h4>
+
+    <h5><%= link_to artwork.artist, artwork.artist_url %></h5>
+  </div>
+  <% end %>
+</div>
