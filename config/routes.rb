@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :dashboard do
-    resources :artworks, only: :index
+    resources :artworks, only: [:index, :show]
   end
 
   root 'welcome#index'
