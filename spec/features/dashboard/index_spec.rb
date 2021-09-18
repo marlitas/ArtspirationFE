@@ -17,4 +17,23 @@ RSpec.describe 'dashboard' do
     click_on('Login with Google')
     expect(current_path).to eq('/dashboard')
   end
+
+  it 'displays the users recommended art'
+
+  it 'displays the users favorites' do
+    visit root_path
+    click_on('Login with Google')
+
+    save_and_open_page
+    expect(page).to have_content('Monroe')
+    expect(page).to have_content('Violin')
+    expect(page).to have_content('Campbells')
+  end
+
+  it 'displays username' do
+    visit root_path
+    click_on('Login with Google')
+
+    expect(page).to have_content("Big Chungus")
+  end
 end
