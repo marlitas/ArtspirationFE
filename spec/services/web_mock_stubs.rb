@@ -12,6 +12,7 @@ module WebmockStubs
       }
     }.to_json
   end
+
   def self.mock_artworks
     {
       'data': [{
