@@ -1,5 +1,5 @@
 class Artwork
-  attr_reader :id,:user_id, :url, :title, :artist
+  attr_reader :id,:user_id, :url, :title, :artist, :artist_url
 
   def initialize(artwork)
     @id = artwork[:id]
@@ -7,6 +7,7 @@ class Artwork
     @url = artwork[:attributes][:url]
     @title = artwork[:attributes][:title]
     @artist = artwork[:attributes][:artist]
+    @artist_url = artwork[:attributes][:artist_url]
   end
 
 end
