@@ -12,8 +12,8 @@ class ArtworksFacade
     Artwork.new(artwork[:data])
   end
 
-  def self.delete_like(art_id, user_id)
-    artwork = ArtworksService.delete_like(art_id, user_id)
+  def self.update_art(art_id, user_id)
+    artwork = ArtworksService.update_art(art_id, user_id)
     Artwork.new(artwork[:data])
   end
 end

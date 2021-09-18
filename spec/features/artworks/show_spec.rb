@@ -29,7 +29,7 @@ RSpec.describe 'Artworks Show' do
       expect(page).to have_content("Added to Liked")
 
       art_delete_stub = WebmockStubs.mock_artwork_not_liked
-      stub_request(:delete, 'https://www.localhost:3000/api/v1/users/1/rated_art/1')
+      stub_request(:patch, 'https://www.localhost:3000/api/v1/users/1/rated_art/1')
       .to_return(status: 200, body: art_delete_stub, headers: {})
 
       art_response_stub = WebmockStubs.mock_artwork_not_liked
