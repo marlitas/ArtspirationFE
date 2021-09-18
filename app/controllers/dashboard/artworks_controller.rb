@@ -8,4 +8,9 @@ class Dashboard::ArtworksController < ApplicationController
     @user = current_user
     @artwork = ArtworksFacade.get_art(params[:id], @user.id)
   end
+
+  def destroy
+    ArtworksFacade.delete_like(params[:id], current_user.id)
+    redirect_to "/dashboard/artworks/#{params[:id]}"
+  end
 end

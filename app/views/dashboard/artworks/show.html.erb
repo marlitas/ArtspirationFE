@@ -6,7 +6,15 @@
   <div class="col-6">
     <h3><%= link_to @artwork.artist, @artwork.artist_url %></h3>
   </div>
-  <div class="col-6">
-    <h3>Added to Liked | <%= link_to 'Remove', "/dashboard/artworks/#{@artwork.id}", method: :delete %></h3>
-  </div>
+  <% if @artwork.liked == 'true' %>
+    <div class="col-6">
+      <h3>Added to Liked | <%= link_to 'Remove', "/dashboard/artworks/#{@artwork.id}", method: :delete %></h3>
+    </div>
+  <% elsif @artwork.liked == 'false' %>
+    <div class="col-6">
+      <h3>Removed from Liked | <%= link_to 'Add to Liked', "/dashboard/artworks/#{@artwork.id}", method: :post %></h3>
+    </div>
+  <% else %>
+
+  <% end %>
 </div>
