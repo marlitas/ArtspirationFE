@@ -2,9 +2,11 @@
 
 <div class="row">
   <% @artworks.each do |artwork| %>
-  <div class="art col-4" id="<%= artwork.id %>">
-    <img src= "<%= artwork.url %>" alt= "<%= artwork.title %>" >
-    <h4><%= artwork.title %></h4>
+  <div class="art col-4" id=<%= "#{artwork.id}" %> >
+  <div class="frame">
+    <img src= <%= "#{artwork.url}" %> alt= <%= "#{artwork.title}" %> >
+  </div>
+    <h4><%= link_to artwork.title, "/dashboard/artworks/#{artwork.id}" %></h4>
 
     <h5><%= link_to artwork.artist, artwork.artist_url %></h5>
   </div>
