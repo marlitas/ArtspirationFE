@@ -25,17 +25,22 @@ RSpec.describe 'Artworks Show' do
       find("img[src='#{@artwork.url}']")
     end
 
-    xit 'shows rating that user gave and option to unlike' do
+    it 'shows rating that user gave and option to unlike' do
       expect(page).to have_content("Added to Liked")
 
-      art_response_stub = WebmockStubs.mock_artworks_removed_liked
-      stub_request(:get, 'https://www.localhost:3000/api/v1/users/1/rated_art')
-      .to_return(status: 200, body: art__response_stub, headers: {})
+      art_delete_stub = WebmockStubs.mock_artwork_not_liked
+      stub_request(:delete, 'https://www.localhost:3000/api/v1/users/1/rated_art/1')
+      .to_return(status: 200, body: art_delete_stub, headers: {})
 
-      click_on('Remove from Liked')
-      expect(current_path).to eq('/dashboard/artworks')
-      expect(page).to_not have_content(@artworks[0].title)
-      expect(page.all(:css, '.art').count).to eq(2)
+      art_response_stub = WebmockStubs.mock_artwork_not_liked
+      stub_request(:get, 'https://www.localhost:3000/api/v1/users/1/rated_art/1')
+      .to_return(status: 200, body: art_response_stub, headers: {})
+
+      click_on('Remove')
+      expect(current_path).to eq("/dashboard/artworks/#{@artwork.id}")
+      expect(page).to_not have_content('Added to Liked')
+      expect(page).to have_content('Removed from Liked')
+      expect(page).to have_content('Add to Liked')
     end
 
     xit 'asks user to rate if no rating given' do
@@ -45,6 +50,10 @@ RSpec.describe 'Artworks Show' do
     describe 'links' do
       xit 'links to artists external webpage' do
         find("a[href='#{@artworks[0].artist_url}']")
+      end
+
+      xit 'links back to artwork index' do
+
       end
     end
   end
