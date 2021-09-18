@@ -44,7 +44,7 @@ RSpec.describe 'Artworks Show' do
     end
 
     it 'asks user to rate if no rating given' do
-      art_update_stub = WebmockStubs.mock_artwork_unrated
+      art_update_stub = WebmockStubs.mock_artwork_liked
       stub_request(:patch, 'https://www.localhost:3000/api/v1/users/1/rated_art/1')
       .to_return(status: 200, body: art_update_stub, headers: {})
 
@@ -57,10 +57,13 @@ RSpec.describe 'Artworks Show' do
       expect(page).to have_content("Like")
       expect(page).to have_content("Dislike")
 
+      art_response_stub_2 = WebmockStubs.mock_artwork_liked
+      stub_request(:get, 'https://www.localhost:3000/api/v1/users/1/rated_art/1')
+      .to_return(status: 200, body: art_response_stub_2, headers: {})
+
       click_on('Like')
       expect(current_path).to eq("/dashboard/artworks/#{@artwork.id}")
-      #uncomment once connected to BE
-      #expect(page).to have_content('Added to Liked')
+      expect(page).to have_content('Added to Liked')
     end
 
     describe 'links' do
@@ -75,7 +78,7 @@ RSpec.describe 'Artworks Show' do
         art_stub = WebmockStubs.mock_artworks
         stub_request(:get, 'https://www.localhost:3000/api/v1/users/1/rated_art')
         .to_return(status: 200, body: art_stub, headers: {})
-        
+
         click_on 'Liked Artworks'
 
         expect(current_path).to eq('/dashboard/artworks')
