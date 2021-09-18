@@ -6,7 +6,7 @@
   </div>
 </div>
 <% end %>
-
+<%= link_to 'Liked Artworks', '/dashboard/artworks'%>
 <h1> <%= @artwork.title %> </h1>
 <div class="large-frame">
   <img src= <%= "#{@artwork.url}" %> alt= <%= "#{@artwork.title}" %> >

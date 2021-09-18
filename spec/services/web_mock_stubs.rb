@@ -85,36 +85,7 @@ module WebmockStubs
     }.to_json
   end
 
-  def self.mock_artworks_removed_like
-    {
-      'data': [{
-        'id': '2',
-        'type': 'liked_rated_art',
-        'attributes': {
-          'user_id': '1',
-          'url': 'https://d32dm0rphc51dk.cloudfront.net/dTGcd0Xx0aEp_MDFdHIUIw/large.jpg',
-          'title': 'Violin',
-          'artist': 'Sparky',
-          'artist_url': 'https://en.wikipedia.org/wiki/Vincent_van_Gogh',
-          'liked': 'true'
-        }
-      },
-      {
-        'id': '3',
-        'type': 'liked_rated_art',
-        'attributes': {
-          'user_id': '1',
-          'url': 'https://d32dm0rphc51dk.cloudfront.net/E-k-uLoQADM8AjadsSKHrA/large.jpg',
-          'title': 'Monroe',
-          'artist': 'Luna',
-          'artist_url': 'https://en.wikipedia.org/wiki/Vincent_van_Gogh',
-          'liked': 'true'
-        }
-      }
-    ]}.to_json
-  end
-
-  def self.delete_like
+  def self.mock_artwork_unrated
     {
       'data': {
         'id': '1',
@@ -124,7 +95,7 @@ module WebmockStubs
           'title': 'Campbells',
           'artist': 'Big Pharma',
           'artist_url': 'https://en.wikipedia.org/wiki/Vincent_van_Gogh',
-          'liked': 'false'
+          'liked': 'unrated'
         }
       }
     }.to_json

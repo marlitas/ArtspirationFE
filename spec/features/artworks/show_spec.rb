@@ -28,9 +28,9 @@ RSpec.describe 'Artworks Show' do
     it 'shows rating that user gave and option to unlike' do
       expect(page).to have_content("Added to Liked")
 
-      art_delete_stub = WebmockStubs.mock_artwork_not_liked
+      art_update_stub = WebmockStubs.mock_artwork_not_liked
       stub_request(:patch, 'https://www.localhost:3000/api/v1/users/1/rated_art/1')
-      .to_return(status: 200, body: art_delete_stub, headers: {})
+      .to_return(status: 200, body: art_update_stub, headers: {})
 
       art_response_stub = WebmockStubs.mock_artwork_not_liked
       stub_request(:get, 'https://www.localhost:3000/api/v1/users/1/rated_art/1')
@@ -43,18 +43,42 @@ RSpec.describe 'Artworks Show' do
       expect(page).to have_content('Add to Liked')
     end
 
-    xit 'asks user to rate if no rating given' do
+    it 'asks user to rate if no rating given' do
+      art_update_stub = WebmockStubs.mock_artwork_unrated
+      stub_request(:patch, 'https://www.localhost:3000/api/v1/users/1/rated_art/1')
+      .to_return(status: 200, body: art_update_stub, headers: {})
+
+      art_response_stub = WebmockStubs.mock_artwork_unrated
+      stub_request(:get, 'https://www.localhost:3000/api/v1/users/1/rated_art/1')
+      .to_return(status: 200, body: art_response_stub, headers: {})
+
+      visit "/dashboard/artworks/#{@artwork.id}"
+
       expect(page).to have_content("Like")
       expect(page).to have_content("Dislike")
+
+      click_on('Like')
+      expect(current_path).to eq("/dashboard/artworks/#{@artwork.id}")
+      #uncomment once connected to BE
+      #expect(page).to have_content('Added to Liked')
     end
 
     describe 'links' do
-      xit 'links to artists external webpage' do
-        find("a[href='#{@artworks[0].artist_url}']")
+      it 'links to artists external webpage' do
+        find("a[href='#{@artwork.artist_url}']")
       end
 
-      xit 'links back to artwork index' do
+      it 'links back to artwork index' do
+        user_stub = WebmockStubs.mock_user
+        stub_request(:get, 'https://www.localhost:3000/api/v1/users/1')
+        .to_return(status: 200, body: user_stub, headers: {})
+        art_stub = WebmockStubs.mock_artworks
+        stub_request(:get, 'https://www.localhost:3000/api/v1/users/1/rated_art')
+        .to_return(status: 200, body: art_stub, headers: {})
+        
+        click_on 'Liked Artworks'
 
+        expect(current_path).to eq('/dashboard/artworks')
       end
     end
   end
