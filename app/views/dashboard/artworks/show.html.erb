@@ -8,13 +8,15 @@
   </div>
   <% if @artwork.liked == 'true' %>
     <div class="col-6">
-      <h3>Added to Liked | <%= link_to 'Remove', "/dashboard/artworks/#{@artwork.id}", method: :patch %></h3>
+      <h3>Added to Liked | <%= link_to 'Remove', "/dashboard/artworks/#{@artwork.id}?liked=false", method: :patch %></h3>
     </div>
   <% elsif @artwork.liked == 'false' %>
     <div class="col-6">
-      <h3>Removed from Liked | <%= link_to 'Add to Liked', "/dashboard/artworks/#{@artwork.id}", method: :patch %></h3>
+      <h3>Removed from Liked | <%= link_to 'Add to Liked', "/dashboard/artworks/#{@artwork.id}?liked=false", method: :patch %></h3>
     </div>
   <% else %>
-
+    <div class="col-6">
+      <h3><%= link_to 'Like', "/dashboard/artworks/#{@artwork.id}?liked=true", method: :patch %> | <%= link_to 'Dislike', "/dashboard/artworks/#{@artwork.id}?liked=false", method: :patch %></h3>
+    </div>
   <% end %>
 </div>

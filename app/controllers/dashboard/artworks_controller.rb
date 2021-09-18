@@ -10,7 +10,8 @@ class Dashboard::ArtworksController < ApplicationController
   end
 
   def update
-    ArtworksFacade.update_art(params[:id], current_user.id)
+    content = params[:liked]
+    ArtworksFacade.update_art(params[:id], current_user.id, content)
     redirect_to "/dashboard/artworks/#{params[:id]}"
   end
 end
