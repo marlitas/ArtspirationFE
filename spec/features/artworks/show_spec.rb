@@ -44,7 +44,8 @@ RSpec.describe 'Artworks Show' do
     end
 
     xit 'asks user to rate if no rating given' do
-
+      expect(page).to have_content("Like")
+      expect(page).to have_content("Dislike")
     end
 
     describe 'links' do

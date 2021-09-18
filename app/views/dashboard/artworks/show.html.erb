@@ -1,3 +1,12 @@
+<% if @artwork.liked == 'unrated' %>
+<div class="question">
+  <h2>How do you like this artwork?</h2>
+  <div class="rating">
+    <h3><%= link_to 'Like', "/dashboard/artworks/#{@artwork.id}?liked=true", method: :patch %> | <%= link_to 'Dislike', "/dashboard/artworks/#{@artwork.id}?liked=false", method: :patch %></h3>
+  </div>
+</div>
+<% end %>
+
 <h1> <%= @artwork.title %> </h1>
 <div class="large-frame">
   <img src= <%= "#{@artwork.url}" %> alt= <%= "#{@artwork.title}" %> >
@@ -13,10 +22,6 @@
   <% elsif @artwork.liked == 'false' %>
     <div class="col-6">
       <h3>Removed from Liked | <%= link_to 'Add to Liked', "/dashboard/artworks/#{@artwork.id}?liked=false", method: :patch %></h3>
-    </div>
-  <% else %>
-    <div class="col-6">
-      <h3><%= link_to 'Like', "/dashboard/artworks/#{@artwork.id}?liked=true", method: :patch %> | <%= link_to 'Dislike', "/dashboard/artworks/#{@artwork.id}?liked=false", method: :patch %></h3>
     </div>
   <% end %>
 </div>
