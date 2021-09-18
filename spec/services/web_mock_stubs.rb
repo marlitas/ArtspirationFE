@@ -59,4 +59,38 @@ module WebmockStubs
       }
     }.to_json
   end
+  def self.mock_artwork_recommendations
+    {
+      'data': [{
+        'id': '1',
+        'type': 'user_recommendations',
+        'attributes': {
+          'user_id': '1',
+          'url': 'https://d32dm0rphc51dk.cloudfront.net/46PghnvIBjrN25-_kPPwQA/big_and_tall.jpg',
+          'title': 'Campbells',
+          'artist': 'Big Pharma'
+        }
+      },
+      {
+        'id': '2',
+        'type': 'user_recommendations',
+        'attributes': {
+          'user_id': '1',
+          'url': 'https://d32dm0rphc51dk.cloudfront.net/dTGcd0Xx0aEp_MDFdHIUIw/large.jpg',
+          'title': 'Violin',
+          'artist': 'Sparky'
+        }
+      },
+      {
+        'id': '3',
+        'type': 'user_recommendations',
+        'attributes': {
+          'user_id': '1',
+          'url': 'https://d32dm0rphc51dk.cloudfront.net/E-k-uLoQADM8AjadsSKHrA/large.jpg',
+          'title': 'Monroe',
+          'artist': 'Luna'
+        }
+      }
+    ]}.to_json
+  end
 end
