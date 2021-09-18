@@ -7,4 +7,9 @@ class ArtworksFacade
     end
   end
 
+  def self.get_art(art_id, user_id)
+    artwork = ArtworksService.get_art(art_id, user_id)
+    Artwork.new(artwork[:data])
+  end
+
 end

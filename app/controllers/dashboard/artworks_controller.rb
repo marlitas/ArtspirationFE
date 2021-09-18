@@ -5,6 +5,7 @@ class Dashboard::ArtworksController < ApplicationController
   end
 
   def show
-
+    @user = current_user
+    @artwork = ArtworksFacade.get_art(params[:id], @user.id)
   end
 end
