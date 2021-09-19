@@ -24,6 +24,13 @@ RSpec.describe 'dashboard' do
     expect(current_path).to eq('/dashboard')
   end
 
+  it 'redirects you to root without a valid login' do
+    visit dashboard_index_path
+
+    expect(current_path).to eq(root_path)
+    expect(page).to have_content('You must be logged in to visit that page.')
+  end
+
   it 'displays the users recommended art' do
     visit root_path
     click_on('Login with Google')
@@ -59,7 +66,7 @@ RSpec.describe 'dashboard' do
   it 'can click link for recommended art' do
     stub_request(:get, 'https://www.localhost:3000/api/v1/art/4')
     .to_return(status: 200, body: WebmockStubs.mock_artwork_recommendations, headers: {})
-    
+
     visit root_path
     click_on('Login with Google')
 
