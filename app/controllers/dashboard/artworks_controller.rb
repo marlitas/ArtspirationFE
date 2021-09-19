@@ -5,6 +5,13 @@ class Dashboard::ArtworksController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @artwork = ArtworksFacade.get_art(params[:id], @user.id)
+  end
 
+  def update
+    content = params[:liked]
+    ArtworksFacade.update_art(params[:id], current_user.id, content)
+    redirect_to "/dashboard/artworks/#{params[:id]}"
   end
 end

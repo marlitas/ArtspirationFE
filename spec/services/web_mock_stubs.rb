@@ -23,7 +23,8 @@ module WebmockStubs
           'url': 'https://d32dm0rphc51dk.cloudfront.net/46PghnvIBjrN25-_kPPwQA/big_and_tall.jpg',
           'title': 'Campbells',
           'artist': 'Big Pharma',
-          'artist_url': 'https://en.wikipedia.org/wiki/Vincent_van_Gogh'
+          'artist_url': 'https://en.wikipedia.org/wiki/Vincent_van_Gogh',
+          'liked': 'true'
         }
       },
       {
@@ -34,7 +35,8 @@ module WebmockStubs
           'url': 'https://d32dm0rphc51dk.cloudfront.net/dTGcd0Xx0aEp_MDFdHIUIw/large.jpg',
           'title': 'Violin',
           'artist': 'Sparky',
-          'artist_url': 'https://en.wikipedia.org/wiki/Vincent_van_Gogh'
+          'artist_url': 'https://en.wikipedia.org/wiki/Vincent_van_Gogh',
+          'liked': 'true'
         }
       },
       {
@@ -45,12 +47,13 @@ module WebmockStubs
           'url': 'https://d32dm0rphc51dk.cloudfront.net/E-k-uLoQADM8AjadsSKHrA/large.jpg',
           'title': 'Monroe',
           'artist': 'Luna',
-          'artist_url': 'https://en.wikipedia.org/wiki/Vincent_van_Gogh'
+          'artist_url': 'https://en.wikipedia.org/wiki/Vincent_van_Gogh',
+          'liked': 'true'
         }
       }
     ]}.to_json
   end
-  def self.mock_artwork
+  def self.mock_artwork_liked
     {
       'data': {
         'id': '1',
@@ -59,7 +62,40 @@ module WebmockStubs
           'url': 'https://d32dm0rphc51dk.cloudfront.net/46PghnvIBjrN25-_kPPwQA/big_and_tall.jpg',
           'title': 'Campbells',
           'artist': 'Big Pharma',
-          'artist_url': 'https://en.wikipedia.org/wiki/Vincent_van_Gogh'
+          'artist_url': 'https://en.wikipedia.org/wiki/Vincent_van_Gogh',
+          'liked': 'true'
+        }
+      }
+    }.to_json
+  end
+
+  def self.mock_artwork_not_liked
+    {
+      'data': {
+        'id': '1',
+        'type': 'artwork',
+        'attributes': {
+          'url': 'https://d32dm0rphc51dk.cloudfront.net/46PghnvIBjrN25-_kPPwQA/big_and_tall.jpg',
+          'title': 'Campbells',
+          'artist': 'Big Pharma',
+          'artist_url': 'https://en.wikipedia.org/wiki/Vincent_van_Gogh',
+          'liked': 'false'
+        }
+      }
+    }.to_json
+  end
+
+  def self.mock_artwork_unrated
+    {
+      'data': {
+        'id': '1',
+        'type': 'artwork',
+        'attributes': {
+          'url': 'https://d32dm0rphc51dk.cloudfront.net/46PghnvIBjrN25-_kPPwQA/big_and_tall.jpg',
+          'title': 'Campbells',
+          'artist': 'Big Pharma',
+          'artist_url': 'https://en.wikipedia.org/wiki/Vincent_van_Gogh',
+          'liked': 'unrated'
         }
       }
     }.to_json
