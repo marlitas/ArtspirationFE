@@ -7,4 +7,14 @@ class ArtworksFacade
     end
   end
 
+  def self.get_artwork_recommendations(user_id)
+    artwork = ArtworksService.get_recommendations(user_id)
+    Artwork.new(artwork[:data])
+  end
+
+  def self.get_artwork(id)
+    artwork = ArtworksService.get_artwork(id)
+    Artwork.new(artwork[:data])
+  end
+
 end
