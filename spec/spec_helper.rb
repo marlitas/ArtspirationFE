@@ -23,6 +23,14 @@ RSpec.configure do |config|
     .to_return(status: 204, body: WebmockStubs.mock_user, headers: {})
     stub_request(:get, 'https://www.localhost:3000/api/v1/users/1/rated_art')
     .to_return(status: 200, body: WebmockStubs.mock_artworks, headers: {})
+    stub_request(:get, 'https://www.localhost:3000/api/v1/artworks/1')
+    .to_return(status: 200, body: WebmockStubs.mock_artwork, headers: {})
+    stub_request(:get, 'https://www.localhost:3000/api/v1/users/1/recommendations')
+    .to_return(status: 200, body: WebmockStubs.mock_artwork_recommendations, headers: {})
+    # stub_request(:get, 'https://www.localhost:3000/api/v1/art/4')
+    # .to_return(status: 200, body: WebmockStubs.mock_artwork_recommendations, headers: {})
+    stub_request(:get, 'https://www.localhost:3000/api/v1/art/1')
+    .to_return(status: 200, body: WebmockStubs.mock_artwork_recommendations, headers: {})
   end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
