@@ -6,13 +6,13 @@ RSpec.describe 'dashboard' do
     stub = WebmockStubs.mock_user
     stub2 = WebmockStubs.mock_artwork_recommendations
     stub3 = WebmockStubs.mock_artwork
-    stub_request(:post, "https://www.localhost:3000/api/v1/users")
+    stub_request(:post, "https://infinite-gorge-45482.herokuapp.com/api/v1/users")
     .to_return(status: 204, body: stub, headers: {})
-    stub_request(:get, "https://www.localhost:3000/api/v1/users/:id")
+    stub_request(:get, "https://infinite-gorge-45482.herokuapp.com/api/v1/users/:id")
     .to_return(status: 200, body: stub, headers: {})
-    stub_request(:get, "https://www.localhost:3000/api/v1/users/1/recommendations")
+    stub_request(:get, "https://infinite-gorge-45482.herokuapp.com/api/v1/users/1/recommendations")
     .to_return(status: 200, body: stub2, headers: {})
-    stub_request(:get, "https://www.localhost:3000/api/v1/artworks/1")
+    stub_request(:get, "https://infinite-gorge-45482.herokuapp.com/api/v1/artworks/1")
     .to_return(status: 200, body: stub3, headers: {})
     Rails.application.env_config["devise.mapping"] = Devise.mappings[:user]
     Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2]
@@ -64,7 +64,7 @@ RSpec.describe 'dashboard' do
   end
 
   it 'can click link for recommended art' do
-    stub_request(:get, 'https://www.localhost:3000/api/v1/art/4')
+    stub_request(:get, 'https://infinite-gorge-45482.herokuapp.com/api/v1/art/4')
     .to_return(status: 200, body: WebmockStubs.mock_artwork_recommendations, headers: {})
 
     visit root_path
