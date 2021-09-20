@@ -5,11 +5,15 @@ RSpec.describe 'index' do
   describe 'user' do
     before(:each) do
       user_stub = WebmockStubs.mock_user
-      stub_request(:get, 'https://www.localhost:3000/api/v1/users/1')
+      stub_request(:get, 'https://infinite-gorge-45482.herokuapp.com/api/v1/users/1')
       .to_return(status: 200, body: user_stub, headers: {})
       art_stub = WebmockStubs.mock_artworks
-      stub_request(:get, 'https://www.localhost:3000/api/v1/users/1/rated_art')
+      stub_request(:get, 'https://infinite-gorge-45482.herokuapp.com/api/v1/users/1/rated_art')
       .to_return(status: 200, body: art_stub, headers: {})
+
+      artwork_stub = WebmockStubs.mock_artwork_liked
+      stub_request(:get, 'https://infinite-gorge-45482.herokuapp.com/api/v1/users/1/rated_art/1')
+      .to_return(status: 200, body: artwork_stub, headers: {})
 
       @user = UsersFacade.get_user(1)
       @artworks = ArtworksFacade.get_rated_art(@user.id)
