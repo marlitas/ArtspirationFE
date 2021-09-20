@@ -6,21 +6,21 @@ RSpec.describe 'dashboard' do
     stub = WebmockStubs.mock_user
     stub2 = WebmockStubs.mock_artwork_recommendations
     stub3 = WebmockStubs.mock_artwork
-    stub_request(:post, "https://infinite-gorge-45482.herokuapp.com/api/v1/users")
+    stub_request(:post, "https://peaceful-reef-61917.herokuapp.com/api/v1/users")
     .to_return(status: 204, body: stub, headers: {})
-    stub_request(:get, "https://infinite-gorge-45482.herokuapp.com/api/v1/users/:id")
+    stub_request(:get, "https://peaceful-reef-61917.herokuapp.com/api/v1/users/:id")
     .to_return(status: 200, body: stub, headers: {})
-    stub_request(:get, "https://infinite-gorge-45482.herokuapp.com/api/v1/users/1/recommendations")
+    stub_request(:get, "https://peaceful-reef-61917.herokuapp.com/api/v1/users/1/recommendations")
     .to_return(status: 200, body: stub2, headers: {})
-    stub_request(:get, "https://infinite-gorge-45482.herokuapp.com/api/v1/artworks/1")
+    stub_request(:get, "https://peaceful-reef-61917.herokuapp.com/api/v1/artworks/1")
     .to_return(status: 200, body: stub3, headers: {})
 
     artwork_stub = WebmockStubs.mock_artwork_liked
-    stub_request(:get, 'https://infinite-gorge-45482.herokuapp.com/api/v1/users/1/rated_art/1')
+    stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1/rated_art/1')
     .to_return(status: 200, body: artwork_stub, headers: {})
 
     artwork_stub_2 = WebmockStubs.mock_artwork
-    stub_request(:get, 'https://infinite-gorge-45482.herokuapp.com/api/v1/users/1/rated_art/4')
+    stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1/rated_art/4')
     .to_return(status: 200, body: artwork_stub_2, headers: {})
 
     Rails.application.env_config["devise.mapping"] = Devise.mappings[:user]
@@ -73,7 +73,7 @@ RSpec.describe 'dashboard' do
   end
 
   it 'can click link for recommended art' do
-    stub_request(:get, 'https://infinite-gorge-45482.herokuapp.com/api/v1/art/4')
+    stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/art/4')
     .to_return(status: 200, body: WebmockStubs.mock_artwork_recommendations, headers: {})
 
     visit root_path

@@ -5,10 +5,10 @@ RSpec.describe 'Artworks Show' do
   describe 'user' do
     before(:each) do
       user_stub = WebmockStubs.mock_user
-      stub_request(:get, 'https://infinite-gorge-45482.herokuapp.com/api/v1/users/1')
+      stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1')
       .to_return(status: 200, body: user_stub, headers: {})
       art_stub = WebmockStubs.mock_artwork_liked
-      stub_request(:get, 'https://infinite-gorge-45482.herokuapp.com/api/v1/users/1/rated_art/1')
+      stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1/rated_art/1')
       .to_return(status: 200, body: art_stub, headers: {})
 
       @user = UsersFacade.get_user(1)
@@ -29,11 +29,11 @@ RSpec.describe 'Artworks Show' do
       expect(page).to have_content("Added to Liked")
 
       art_update_stub = WebmockStubs.mock_artwork_not_liked
-      stub_request(:patch, 'https://infinite-gorge-45482.herokuapp.com/api/v1/users/1/rated_art/1')
+      stub_request(:patch, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1/rated_art/1')
       .to_return(status: 200, body: art_update_stub, headers: {})
 
       art_response_stub = WebmockStubs.mock_artwork_not_liked
-      stub_request(:get, 'https://infinite-gorge-45482.herokuapp.com/api/v1/users/1/rated_art/1')
+      stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1/rated_art/1')
       .to_return(status: 200, body: art_response_stub, headers: {})
 
       click_on('Remove')
@@ -45,11 +45,11 @@ RSpec.describe 'Artworks Show' do
 
     it 'asks user to rate if no rating given' do
       art_update_stub = WebmockStubs.mock_artwork_liked
-      stub_request(:patch, 'https://infinite-gorge-45482.herokuapp.com/api/v1/users/1/rated_art/1')
+      stub_request(:patch, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1/rated_art/1')
       .to_return(status: 200, body: art_update_stub, headers: {})
 
       art_response_stub = WebmockStubs.mock_artwork_unrated
-      stub_request(:get, 'https://infinite-gorge-45482.herokuapp.com/api/v1/users/1/rated_art/1')
+      stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1/rated_art/1')
       .to_return(status: 200, body: art_response_stub, headers: {})
 
       visit "/dashboard/artworks/#{@artwork.id}"
@@ -58,7 +58,7 @@ RSpec.describe 'Artworks Show' do
       expect(page).to have_content("Dislike")
 
       art_response_stub_2 = WebmockStubs.mock_artwork_liked
-      stub_request(:get, 'https://infinite-gorge-45482.herokuapp.com/api/v1/users/1/rated_art/1')
+      stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1/rated_art/1')
       .to_return(status: 200, body: art_response_stub_2, headers: {})
 
       click_on('Like')
@@ -73,10 +73,10 @@ RSpec.describe 'Artworks Show' do
 
       it 'links back to artwork index' do
         user_stub = WebmockStubs.mock_user
-        stub_request(:get, 'https://infinite-gorge-45482.herokuapp.com/api/v1/users/1')
+        stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1')
         .to_return(status: 200, body: user_stub, headers: {})
         art_stub = WebmockStubs.mock_artworks
-        stub_request(:get, 'https://infinite-gorge-45482.herokuapp.com/api/v1/users/1/rated_art')
+        stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1/rated_art')
         .to_return(status: 200, body: art_stub, headers: {})
 
         click_on 'Liked Artworks'
