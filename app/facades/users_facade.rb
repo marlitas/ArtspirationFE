@@ -5,16 +5,11 @@ class UsersFacade
   end
 
   def self.login_user(omniauth)
-    user_body = { data: {
-      id: omniauth[:id],
-      type: 'user',
-      attributes: {
-        name: omniauth[:info][:name],
-        email: omniauth[:info][:email],
-        token: omniauth[:credentials][:token]
-        }
+    #"token": omniauth[:credentials][:token]
+    user_body = {
+      "name": omniauth[:info][:name],
+      "email": omniauth[:info][:email]
       }
-    }
     UsersService.post_user(user_body)
   end
 end
