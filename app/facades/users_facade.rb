@@ -5,7 +5,6 @@ class UsersFacade
   end
 
   def self.login_user(omniauth)
-    #"token": omniauth[:credentials][:token]
     user_body = {
       "name": omniauth[:info][:name],
       "email": omniauth[:info][:email]
