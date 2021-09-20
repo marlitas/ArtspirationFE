@@ -17,4 +17,15 @@ class ArtworksFacade
     Artwork.new(artwork[:data])
   end
 
+  def self.get_art(art_id, user_id)
+    artwork = ArtworksService.get_art(art_id, user_id)
+    Artwork.new(artwork[:data])
+  end
+
+  def self.update_art(art_id, user_id, content)
+    content = {liked: content}
+    artwork = ArtworksService.update_art(art_id, user_id, content)
+    Artwork.new(artwork[:data])
+  end
+
 end
