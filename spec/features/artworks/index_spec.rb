@@ -11,6 +11,10 @@ RSpec.describe 'index' do
       stub_request(:get, 'https://infinite-gorge-45482.herokuapp.com/api/v1/users/1/rated_art')
       .to_return(status: 200, body: art_stub, headers: {})
 
+      artwork_stub = WebmockStubs.mock_artwork_liked
+      stub_request(:get, 'https://infinite-gorge-45482.herokuapp.com/api/v1/users/1/rated_art/1')
+      .to_return(status: 200, body: artwork_stub, headers: {})
+
       @user = UsersFacade.get_user(1)
       @artworks = ArtworksFacade.get_rated_art(@user.id)
       allow_any_instance_of(ApplicationController).to receive(:current_user)
