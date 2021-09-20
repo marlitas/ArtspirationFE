@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
-  def index
+  skip_before_action :user_login
 
-  end
+  def index; end
+
 end

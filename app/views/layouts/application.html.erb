@@ -45,6 +45,15 @@
     </nav>
     <div class="container">
       <div class="row justify-content-center">
+
+        <% flash.each do |type, msg| %>
+        <div align="center">
+          <div class="alert alert-info alert-dismissible btn btn-lg navbar-custom">
+            <%= msg  %>
+          </div>
+        </div>
+        <% end %>
+
         <%= yield %>
       </div>
     </div>
