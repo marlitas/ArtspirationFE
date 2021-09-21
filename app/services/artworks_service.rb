@@ -1,7 +1,7 @@
 class ArtworksService
 
   def self.connect
-    Faraday.new(url: 'https://www.localhost:3000')
+    Faraday.new(url: 'https://peaceful-reef-61917.herokuapp.com')
   end
 
   def self.get_artworks(user_id)

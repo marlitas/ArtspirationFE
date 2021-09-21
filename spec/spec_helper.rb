@@ -1,24 +1,25 @@
 require 'webmock/rspec'
+require './spec/services/web_mock_stubs'
 
 RSpec.configure do |config|
   config.before(:each) do
-    stub_request(:get, 'https://www.localhost:3000/api/v1/users/1')
+    stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1')
     .to_return(status: 200, body: WebmockStubs.mock_user, headers: {})
-    stub_request(:post, 'http://www.localhost:3000/api/v1/users')
+    stub_request(:post, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users')
     .to_return(status: 204, body: WebmockStubs.mock_user, headers: {})
-    stub_request(:get, 'https://www.localhost:3000/api/v1/users/1/rated_art')
+    stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1/rated_art')
     .to_return(status: 200, body: WebmockStubs.mock_artworks, headers: {})
-    stub_request(:get, 'https://www.localhost:3000/api/v1/artworks/1')
-    .to_return(status: 200, body: WebmockStubs.mock_artwork, headers: {})
-    stub_request(:get, 'https://www.localhost:3000/api/v1/users/1/recommendations')
+    stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/artworks/1')
+    .to_return(status: 200, body: WebmockStubs.mock_artwork_liked, headers: {})
+    stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1/recommendations')
     .to_return(status: 200, body: WebmockStubs.mock_artwork_recommendations, headers: {})
-    stub_request(:get, 'https://www.localhost:3000/api/v1/art/4')
+    stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/art/4')
     .to_return(status: 200, body: WebmockStubs.mock_artwork_recommendations, headers: {})
-    stub_request(:get, 'https://www.localhost:3000/api/v1/users/1/rated_art/4')
+    stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1/rated_art/4')
     .to_return(status: 200, body: WebmockStubs.mock_artwork_recommendations, headers: {})
-    stub_request(:get, 'https://www.localhost:3000/api/v1/art/1')
+    stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/art/1')
     .to_return(status: 200, body: WebmockStubs.mock_artwork_recommendations, headers: {})
-    stub_request(:get, 'https://www.localhost:3000/api/v1/users/1/rated_art/1')
+    stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1/rated_art/1')
     .to_return(status: 200, body: WebmockStubs.mock_artwork_recommendations, headers: {})
 
   end

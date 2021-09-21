@@ -59,6 +59,7 @@ module WebmockStubs
         'id': '1',
         'type': 'artwork',
         'attributes': {
+          'user_id': '1',
           'url': 'https://d32dm0rphc51dk.cloudfront.net/46PghnvIBjrN25-_kPPwQA/big_and_tall.jpg',
           'title': 'Campbells',
           'artist': 'Big Pharma',
@@ -69,7 +70,7 @@ module WebmockStubs
     }.to_json
   end
 
-  def self.mock_artwork
+  def self.mock_artwork_4
     {
       'data': {
         'id': '4',
@@ -82,6 +83,21 @@ module WebmockStubs
           }
         }
       }.to_json
+  end
+  
+  def self.mock_artwork_1
+    {
+      'data': {
+        'id': '1',
+        'type': 'artwork',
+        'attributes': {
+          'url': 'https://d32dm0rphc51dk.cloudfront.net/46PghnvIBjrN25-_kPPwQA/big_and_tall.jpg',
+          'title': 'Campbells',
+          'artist': 'Big Pharma',
+          'artist_url': 'https://en.wikipedia.org/wiki/Vincent_van_Gogh'
+        }
+      }
+    }.to_json
   end
 
   def self.mock_artwork_not_liked

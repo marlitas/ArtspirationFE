@@ -8,7 +8,7 @@ class Artwork
     @title = artwork[:attributes][:title]
     @artist = artwork[:attributes][:artist]
     @artist_url = artwork[:attributes][:artist_url]
-    @liked = artwork[:attributes][:liked]
+    @liked = artwork[:attributes].fetch(:liked, 'unrated')
   end
 
 end
