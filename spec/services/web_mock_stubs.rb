@@ -69,6 +69,21 @@ module WebmockStubs
     }.to_json
   end
 
+  def self.mock_artwork
+    {
+      'data': {
+        'id': '4',
+        'type': 'user_recommendations',
+        'attributes': {
+          'user_id': '1',
+          'url': 'https://d7hftxdivxxvm.cloudfront.net/?resize_to=fit&width=604&height=800&quality=80&src=https%3A%2F%2Fd32dm0rphc51dk.cloudfront.net%2Fbgm-SBom-a9cAMeS8-r4_A%2Fnormalized.jpg',
+          'title': 'Ranger Merah',
+          'artist': 'Roby Dwi Antono'
+          }
+        }
+      }.to_json
+  end
+
   def self.mock_artwork_not_liked
     {
       'data': {
