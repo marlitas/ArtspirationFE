@@ -48,7 +48,7 @@ RSpec.describe 'Artworks Show' do
       stub_request(:patch, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1/rated_art/1')
       .to_return(status: 200, body: art_update_stub, headers: {})
 
-      art_response_stub = WebmockStubs.mock_artwork_unrated
+      art_response_stub = WebmockStubs.mock_artwork
       stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1/rated_art/1')
       .to_return(status: 200, body: art_response_stub, headers: {})
 
