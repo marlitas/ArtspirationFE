@@ -5,7 +5,7 @@ class ArtworksService
   end
 
   def self.get_artworks(user_id)
-    response = ArtworksService.connect.get("/api/v1/users/#{user_id}/rated_art")
+    response = ArtworksService.connect.get("/api/v1/users/#{user_id}/rated_arts")
     JSON.parse(response.body, symbolize_names: true)
   end
 
@@ -15,7 +15,7 @@ class ArtworksService
   end
 
   def self.get_artwork(id)
-    response = UsersService.connect.get("/api/v1/art/#{id}")
+    response = UsersService.connect.get("/api/v1/arts/#{id}")
     JSON.parse(response.body, symbolize_names: true)
   end
 
