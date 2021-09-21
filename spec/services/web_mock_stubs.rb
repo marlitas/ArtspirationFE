@@ -116,21 +116,6 @@ module WebmockStubs
     }.to_json
   end
 
-  def self.mock_artwork_unrated
-    {
-      'data': {
-        'id': '1',
-        'type': 'artwork',
-        'attributes': {
-          'url': 'https://d32dm0rphc51dk.cloudfront.net/46PghnvIBjrN25-_kPPwQA/big_and_tall.jpg',
-          'title': 'Campbells',
-          'artist': 'Big Pharma',
-          'artist_url': 'https://en.wikipedia.org/wiki/Vincent_van_Gogh',
-          'liked': 'unrated'
-        }
-      }
-    }.to_json
-  end
   def self.mock_artwork_recommendations
     {
       'data': {
