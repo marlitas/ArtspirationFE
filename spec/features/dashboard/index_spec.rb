@@ -4,10 +4,12 @@ require './spec/services/web_mock_stubs'
 RSpec.describe 'dashboard' do
   before(:each) do
     stub = WebmockStubs.mock_user
+    user_data = JSON.parse(stub, symbolize_names: true)
+    @user = User.new(user_data[:data])
     stub2 = WebmockStubs.mock_artwork_recommendations
-    stub3 = WebmockStubs.mock_artwork
+    stub3 = WebmockStubs.mock_artwork_1
 
-    stub_request(:get, "https://peaceful-reef-61917.herokuapp.com/api/v1/users/:id")
+    stub_request(:get, "https://peaceful-reef-61917.herokuapp.com/api/v1/users/1")
     .to_return(status: 200, body: stub, headers: {})
     stub_request(:get, "https://peaceful-reef-61917.herokuapp.com/api/v1/users/1/recommendations")
     .to_return(status: 200, body: stub2, headers: {})
@@ -15,20 +17,31 @@ RSpec.describe 'dashboard' do
     .to_return(status: 200, body: stub3, headers: {})
 
     artwork_stub = WebmockStubs.mock_artwork_liked
-    stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1/rated_art/1')
+    stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1/rated_arts/1')
     .to_return(status: 200, body: artwork_stub, headers: {})
 
-    artwork_stub_2 = WebmockStubs.mock_artwork
-    stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1/rated_art/4')
+    artwork_stub_2 = WebmockStubs.mock_artwork_1
+    stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1/rated_arts/4')
     .to_return(status: 200, body: artwork_stub_2, headers: {})
+
+    artwork_collection = WebmockStubs.mock_artworks
+    stub_request(:get, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users/1/rated_arts')
+    .to_return(status: 200, body: artwork_collection, headers: {})
+
+    stub_request(:post, 'https://peaceful-reef-61917.herokuapp.com/api/v1/users')
+    .to_return(status: 204, body: stub, headers: {})
 
     Rails.application.env_config["devise.mapping"] = Devise.mappings[:user]
     Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2]
+
+    #allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
   end
 
   xit 'can visit dashboard' do
     visit root_path
     click_on('Login with Google')
+
+    #visit dashboard_index_path
     expect(current_path).to eq('/dashboard')
   end
 
