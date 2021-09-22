@@ -2,14 +2,22 @@ class ArtworksFacade
 
   def self.get_rated_art(user_id)
     artworks = ArtworksService.get_artworks(user_id)
-    artworks[:data].map do |artwork|
-      Artwork.new(artwork)
+    if artworks != ""
+      artworks[:data].map do |artwork|
+        Artwork.new(artwork)
+      end
+    else
+      []
     end
   end
 
   def self.get_artwork_recommendations(user_id)
     artwork = ArtworksService.get_recommendations(user_id)
-    Artwork.new(artwork[:data])
+    if artwork != ""
+      Artwork.new(artwork[:data])
+    else
+      []
+    end
   end
 
   def self.get_artwork(id)

@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def create
     user = UsersFacade.login_user(auth_hash)
     session[:user_id] = user[:data][:id]
-
+    session[:user] = user
     redirect_to '/dashboard'
   end
 

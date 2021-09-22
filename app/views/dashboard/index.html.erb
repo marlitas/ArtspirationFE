@@ -1,27 +1,51 @@
+<%= time_tag Date.today  %>
+<div class="col-2 align-items-stretch" style="display: inline-block; width: 13rem;">
+  <div class="card" style=" width: 12rem;">
+      <a href=""  ><img src="https://d32dm0rphc51dk.cloudfront.net/dTGcd0Xx0aEp_MDFdHIUIw/medium.jpg" class="card-img-top"></a>
+    <div class="card-body" style="height: 125px;">
+      <blockquote class="blockquote mb-0">
+        <p>Title.title's Title</p>
+        <footer class="blockquote-footer"><cite title="Source Title">it's a working title</cite></footer>
+      </blockquote>
+    </div>
+  </div>
+  <div class="ui popup">
+    <blockquote class="blockquote mb-0">Rate this artwork:</blockquote>
+    <br>
+    <div class="ui rating star" id='rating' value="nil" onclick="updateRating()"></div>
+    <%= form_for 'rating' do |f| %>
+      <%= f.hidden_field :rating, id: 'rating_id', value: nil %>
+    <% end %>
+  </div>
+</div>
 <div class="row">
   <div class="col-md-1 mb-1">
+    <% if @liked_art != [] %>
     <img class="rounded-circle z-depth-2" style="width: 50px" alt="profile picture" src=<%= @liked_art[0].url %>
-      data-holder-rendered="true">
+    data-holder-rendered="true">
+    <% end %>
   </div>
   <div class="col-md-4 mb-4">
-    <h1 class="text-capitalize"><%= @user.name %></h1>
+    <h1 class="text-capitalize"><%= @user['data']['attributes']['name'] %></h1>
   </div>
 </div>
 <br><br><br><br>
 
 <div class="frame" style="background-color: black; width: 50%; padding: 2%; margin: 5%;">
   <h2>Todays Curated Art Recommendation</h2>
-  <a href="<%= dashboard_artwork_path(@recommended_art.id) %>"><img src="<%= @recommended_art.url %>" class="d-block w-100" alt="recommended art" >
-  <p><%= @recommended_art.title %></p>
-  <p><%= @recommended_art.artist %></p>
+  <% if @recommended_art != [] %>
+    <a href="<%= dashboard_artwork_path(@recommended_art.id) %>"><img src="<%= @recommended_art.url %>" class="d-block w-100" alt="recommended art" >
+    <p><%= @recommended_art.title %></p>
+    <p><%= @recommended_art.artist %></p>
+  <% end %>
 </div>
 
 <br><br><br><br><br><br>
 
 <div class="col-8">
   <div style="overflow-x: scroll; overflow-y: hidden; white-space: nowrap;">
-    <% total_liked_arts = @liked_art.count %>
-    <%0..total_liked_arts.times do |i| %>
+    <% if @liked_art != [] %>
+    <%@liked_art.each do |i| %>
     <div class="col-2 align-items-stretch" style="display: inline-block; width: 13rem;">
       <div class="card" style=" width: 12rem;">
           <a href="<%= dashboard_artwork_path(@liked_art[i].id) %>" name="image-<%= i %>" ><img src="<%= @liked_art[i].url %>" class="card-img-top" alt="image-<%= i %>"></a>
@@ -34,5 +58,25 @@
       </div>
     </div>
     <%end %>
+    <% end %>
   </div>
 </div>
+<script>
+  $('.ui.rating')
+  .rating({
+    maxRating: 5
+  });
+  updateRating = () =>{
+    document.getElementById('rating_id').value = $('.icon.selected').length
+  }
+  $('.col-2 .card')
+    .popup({
+      inline     : true,
+      hoverable  : true,
+      position   : 'bottom left',
+      delay: {
+        show: 300,
+        hide: 800
+      }
+    });
+</script>

@@ -6,12 +6,12 @@ class ArtworksService
 
   def self.get_artworks(user_id)
     response = ArtworksService.connect.get("/api/v1/users/#{user_id}/rated_art")
-    JSON.parse(response.body, symbolize_names: true)
+    JSON.parse(response.body.to_json, symbolize_names: true)
   end
 
   def self.get_recommendations(user_id)
     response = UsersService.connect.get("/api/v1/users/#{user_id}/recommendations")
-    JSON.parse(response.body, symbolize_names: true)
+    JSON.parse(response.body.to_json, symbolize_names: true)
   end
 
   def self.get_artwork(id)
