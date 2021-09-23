@@ -13,3 +13,70 @@
  *= require_tree .
  *= require_self
  */
+
+h1, h2, h3, h4 {
+  margin: auto;
+  padding: 4%;
+  text-align: center;
+
+}
+
+a {
+  background-color: MediumAquaMarine;
+  color: white;
+  padding: 2%;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  margin: 1%;
+}
+
+a:hover {
+  background-color: DarkSeaGreen;
+  color: black;
+}
+
+.button {
+  width: 30%;
+}
+
+.button:hover {
+  width: 30%;
+  color: black;
+}
+
+.frame {
+  background-color: transparent;
+}
+
+.large-frame {
+  margin: auto;
+  display: block;
+}
+
+img {
+  margin: auto;
+  display: block;
+}
+
+#curated {
+  color: white;
+}
+
+#curated-art {
+  background-color: transparent;
+}
+
+.nav-link {
+  background-color: transparent;
+}
+
+.liked-art {
+  background-color: transparent;
+
+}
+
+.liked-art:hover {
+  background-color: transparent;
+
+}
