@@ -22,6 +22,7 @@ class ArtworksService
   def self.update_art(art_id, user_id, content)
     response = ArtworksService.connect.patch("/api/v1/users/#{user_id}/rated_arts/#{art_id}") do |req|
       req.body = content.to_json
+      req.headers = {'Content-Type' => 'application/json'}
     end
     JSON.parse(response.body, symbolize_names: true)
   end

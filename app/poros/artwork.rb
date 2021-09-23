@@ -4,7 +4,7 @@ class Artwork
   def initialize(artwork)
     @id = artwork[:id]
     @user_id = artwork[:attributes][:user_id]
-    @url = artwork[:attributes][:url]
+    @url = artwork[:attributes][:image]
     @title = artwork[:attributes][:title]
     @artist = artwork[:attributes][:artist]
     @artist_url = artwork[:attributes][:artist_url]

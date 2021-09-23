@@ -14,8 +14,8 @@
 <div class="frame" style="background-color: black; width: 50%; padding: 2%; margin: 5%;">
   <h2>Todays Curated Art Recommendation</h2>
   <% @recommended_art.each do |art| %>
-    <a href="<%= dashboard_artwork_path(art.id) %>"><img src="<%= art.url %>" class="d-block w-100" alt="recommended art" >
-    <p><%= art.title %></p>
+    <a href= <%= "#{dashboard_artwork_path(art.id)}" %>><img src= <%= "#{art.url}" %> class="d-block w-100" alt="recommended art" >
+    <p><%= art.title %></p></a>
     <p><%= art.artist %></p>
   <% end %>
 </div>
@@ -28,7 +28,7 @@
     <%0..total_liked_arts.times do |i| %>
     <div class="col-2 align-items-stretch" style="display: inline-block; width: 13rem;">
       <div class="card" style=" width: 12rem;">
-          <a href="<%= dashboard_artwork_path(@liked_art[i].id) %>" name="image-<%= i %>" ><img src="<%= @liked_art[i].url %>" class="card-img-top" alt="image-<%= i %>"></a>
+          <a href= <%= "#{dashboard_artwork_path(@liked_art[i].id)}" %> name="image-<%= i %>" ><img src= <%= "#{@liked_art[i].url}" %> class="card-img-top" alt="image-<%= i %>"></a>
         <div class="card-body" style="height: 125px;">
           <blockquote class="blockquote mb-0">
             <p><%= @liked_art[i].title %></p>
