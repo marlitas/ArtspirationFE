@@ -8,8 +8,10 @@ class ArtworksFacade
   end
 
   def self.get_artwork_recommendations(user_id)
-    artwork = ArtworksService.get_recommendations(user_id)
-    Artwork.new(artwork[:data])
+    artworks = ArtworksService.get_recommendations(user_id)
+    artworks[:data].map do |artwork|
+      Artwork.new(artwork)
+    end
   end
 
   def self.get_art(art_id, user_id)

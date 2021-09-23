@@ -1,7 +1,9 @@
 <div class="row">
   <div class="col-md-1 mb-1">
-    <img class="rounded-circle z-depth-2" style="width: 50px" alt="profile picture" src=<%= @liked_art[0].url %>
+    <% if !@liked_art[0].nil? %>
+      <img class="rounded-circle z-depth-2" style="width: 50px" alt="profile picture" src=<%= @liked_art[0].url %>
       data-holder-rendered="true">
+    <% end %>
   </div>
   <div class="col-md-4 mb-4">
     <h1 class="text-capitalize"><%= @user.name %></h1>
@@ -11,9 +13,11 @@
 
 <div class="frame" style="background-color: black; width: 50%; padding: 2%; margin: 5%;">
   <h2>Todays Curated Art Recommendation</h2>
-  <a href="<%= dashboard_artwork_path(@recommended_art.id) %>"><img src="<%= @recommended_art.url %>" class="d-block w-100" alt="recommended art" >
-  <p><%= @recommended_art.title %></p>
-  <p><%= @recommended_art.artist %></p>
+  <% @recommended_art.each do |art| %>
+    <a href="<%= dashboard_artwork_path(art.id) %>"><img src="<%= art.url %>" class="d-block w-100" alt="recommended art" >
+    <p><%= art.title %></p>
+    <p><%= art.artist %></p>
+  <% end %>
 </div>
 
 <br><br><br><br><br><br>
