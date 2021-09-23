@@ -7,8 +7,6 @@
     <img src= <%= "#{artwork.url}" %> alt= <%= "#{artwork.title}" %> >
   </div>
     <h4><%= link_to artwork.title, "/dashboard/artworks/#{artwork.id}" %></h4>
-
-    <h5><%= link_to artwork.artist, artwork.artist_url %></h5>
   </div>
   <% end %>
 </div>
