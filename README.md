@@ -44,7 +44,7 @@
 
 ## About The Project
 
-![Artspiration Screenshot](https://photos.google.com/photo/AF1QipOuWJtd7RxC9tCq4l7NoFQ7y99VbAe-b5gYgPy9)
+![Artspiration Screenshot](cool screenshot)
 
 The frontend of Artspiration provides users with a daily art piece that they can like, dislike, and add to their artboard in hopes to give users a way to find new artwork and exciting new artists.
 
