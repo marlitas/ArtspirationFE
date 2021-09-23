@@ -36,12 +36,18 @@ a:hover {
   color: black;
 }
 
-.button {
-  width: 30%;
+.google {
+  background-color: MediumAquaMarine;
+  font-size: 1.5em;
+  color: white;
+  padding: 2%;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  margin: 1%;
 }
 
-.button:hover {
-  width: 30%;
+.google:hover {
   color: black;
 }
 
