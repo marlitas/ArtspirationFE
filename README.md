@@ -36,7 +36,8 @@
   <a href="installation">Installation</a> •
   <a href="#how-to-use">How To Use</a> •
   <a href="#roadmap">Roadmap</a></li> •
-  <a href="#contributing">Contributing</a>
+  <a href="#contributing">Contributing</a> •
+  <a href="#acknowledgements">Acknowledgements</a>
 </p>
 
 
@@ -153,3 +154,12 @@ Use this space to show useful examples of how a project can be used. Additional 
 👤  **Dee H**
 - [GitHub](https://github.com/deebot10)
 - [LinkedIn](https://www.linkedin.com/in/dee/)
+
+
+
+## Acknowledgements
+
+* [Turing School of Software and Design](https://turing.edu/)
+  - Project created for completion towards Backend Engineering Program
+* [Artsy API](https://www.api.artsy.net/)
+* [Google Cloud Vision API](https://cloud.google.com/vision)
