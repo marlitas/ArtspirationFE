@@ -157,7 +157,7 @@ Through your dashboard you can access an index page that contains all the work y
 
 👤  **Dee H**
 - [GitHub](https://github.com/deebot10)
-- [LinkedIn](https://www.linkedin.com/in/dee/)
+- [LinkedIn](https://www.linkedin.com/in/dee-hill/)
 
 
 
