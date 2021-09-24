@@ -34,6 +34,7 @@
   <a href="#tools-used">Tools Used</a> •
   <a href="#set-up">Set Up</a> •
   <a href="installation">Installation</a> •
+  <a href="#Oauth-Integration">Oauth Integration</a> •
   <a href="#how-to-use">How To Use</a> •
   <a href="#roadmap">Roadmap</a></li> •
   <a href="#contributing">Contributing</a> •
@@ -71,7 +72,7 @@ The frontend of Artspiration provides users with a daily art piece that they can
 | Atom        | SimpleCov     | Figaro          |
 | Github      | FactoryBot    | FastJSON        |
 | TravisCI    | Faker         | Bootstrap       |
-| Heroku      |               |                 |
+| Heroku      |               | Omniauth        |
 
 
 
@@ -117,11 +118,14 @@ rails db:create
 rails db:migrate
 ```
 
-
+## Oauth Integration
+We integrated Google Oauth into the application as both a learning goal, and a way to make app functionality easier for the user. By using the gem omniauth, we also open more opportunities to integrate further Oauth providers into our app such as: facebook, twitter, github, and more. 
 
 ## How To Use
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+To use artspiration you can visit our homepage and login with your google account. From there you will see a randomly chosen art piece, that will start to be curated by our recommendation engine after you have rated 4 pieces. Our images are sent through Google's Cloud Vision API, returning labels that we store and rank in our database. Our recommendation engine then uses a content-filtering methodology to predict art each user may like. A dot product algorithm runs through all categories a user has ranked and all categories associated with an art piece to calculate a recommendation score. 
+
+Through your dashboard you can access an index page that contains all the work you have liked in the past, as well as a show page for each image. Logout to end your session!
 
 
 
