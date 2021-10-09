@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-3 avatar">
+  <div class="col-2 avatar">
     <% if !@liked_art[0].nil? %>
     <div class="avatar-frame">
       <img class="rounded-circle" alt="profile picture" src=<%= @liked_art[0].url %>
@@ -25,20 +25,18 @@
 <br><br><br><br><br><br>
 
 <div class="row">
-  <div style="overflow-x: scroll; overflow-y: hidden; white-space: nowrap;">
+  <div class="carousel">
     <% total_liked_arts = @liked_art.count %>
     <%0..total_liked_arts.times do |i| %>
-    <div class="col-4 align-items-stretch carousel" >
       <div class="card">
           <a href= <%= "#{dashboard_artwork_path(@liked_art[i].id)}" %> name="image-<%= i %>" ><img src= <%= "#{@liked_art[i].url}" %> class="card-img-top" alt="image-<%= i %>"></a>
-        <div class="card-body" style="height: 125px;">
-          <blockquote class="blockquote mb-0">
-            <p><%= @liked_art[i].title %></p>
-            <footer class="blockquote-footer"><cite title="Source Title"><%= @liked_art[i].artist %></cite></footer>
-          </blockquote>
+        <div class="card-body">
+          <h4 class="card-title">
+            <%= @liked_art[i].title %>
+          </h4>
+          <h5 class="card-subtitle"><%= @liked_art[i].artist %></h5>
         </div>
       </div>
-    </div>
     <%end %>
   </div>
 </div>
