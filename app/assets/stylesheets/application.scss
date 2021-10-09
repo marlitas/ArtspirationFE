@@ -12,16 +12,32 @@
  *
  */
  @import "bootstrap";
+ @import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@500;600;700&display=swap');
+
+body {
+  background-color: #F244A4;
+}
+
+nav {
+  margin-bottom: 20px;
+}
 
 h1, h2, h3, h4 {
   margin: auto;
-  padding: 4%;
+  padding: 2%;
   text-align: center;
+  color: black;
+}
 
+h1 {
+  font-weight: bold;
+  font-family: 'Azeret Mono', monospace;
+  font-size: 3em;
+  width: 80%;
 }
 
 a {
-  background-color: MediumAquaMarine;
+  background-color: black;
   color: white;
   padding: 2%;
   font-weight: bold;
@@ -30,13 +46,14 @@ a {
   margin: 1%;
 }
 
-a:hover {
-  background-color: DarkSeaGreen;
-  color: black;
+.navbar-brand:hover {
+  background-color: black;
+  color: #59CCD9;
 }
 
 .google {
-  background-color: MediumAquaMarine;
+  background-color: black;
+  width: 50%;
   font-size: 1.5em;
   color: white;
   padding: 2%;
@@ -47,13 +64,25 @@ a:hover {
 }
 
 .google:hover {
-  color: black;
+  background-color: #F2E852;
+  color: #F244A4;
+  width: 50%;
 }
 
 .frame {
-  background-color: transparent;
+  background-color: black;
+  width: 50%;
+  padding: 2%;
+  margin: 5%;
 }
 
+.navbar {
+  background-color: black;
+}
+
+.nav-item:hover {
+  color: #59CCD9;
+}
 .large-frame {
   margin: auto;
   display: block;
@@ -84,4 +113,29 @@ img {
 .liked-art:hover {
   background-color: transparent;
 
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-frame {
+  width: 80%;
+}
+
+.username {
+  text-align: left;
+}
+
+.rounded-circle {
+  width: 100%;
+}
+
+.card {
+  background-color: #F2E852;
+}
+
+.carousel {
+  display: inline-block;
 }
