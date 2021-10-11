@@ -1,3 +1,8 @@
+<h1> <%= @artwork.title %> </h1>
+<div class="large-frame">
+  <img src= <%= "#{@artwork.url}" %> alt= <%= "#{@artwork.title}" %> >
+</div>
+
 <% if @artwork.liked == 'unrated' %>
 <div class="question">
   <h2>How do you like this artwork?</h2>
@@ -6,9 +11,3 @@
   </div>
 </div>
 <% end %>
-
-<%= link_to 'Liked Artworks', '/dashboard/artworks', class: 'liked-art'%>
-<h1> <%= @artwork.title %> </h1>
-<div class="large-frame">
-  <img src= <%= "#{@artwork.url}" %> alt= <%= "#{@artwork.title}" %> >
-</div>

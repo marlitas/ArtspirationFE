@@ -16,10 +16,12 @@
 
 body {
   background-color: #F244A4;
+  margin-top: 15VH;
 }
 
-nav {
-  margin-bottom: 20px;
+img {
+  margin: auto;
+  display: block;
 }
 
 h1, h2, h3, h4 {
@@ -36,6 +38,15 @@ h1 {
   width: 80%;
 }
 
+h2  {
+  font-family: 'Azeret Mono', monospace;
+  font-size: 2em;
+}
+
+h4 {
+  font-size: 1.5em;
+}
+
 a {
   color: white;
   padding: 2%;
@@ -45,8 +56,34 @@ a {
   margin: 1%;
 }
 
-.navbar-brand:hover {
+a:hover {
+  color: #72BF6F;
+}
+
+.navbar {
   background-color: black;
+  margin-bottom: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.nav-link {
+  background-color: transparent;
+  width: 100%;
+}
+
+.navbar-dark .navbar-brand:hover {
+  background-color: black;
+  color: #72BF6F;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #72BF6F;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
   color: #59CCD9;
 }
 
@@ -68,52 +105,6 @@ a {
   width: 50%;
 }
 
-.frame {
-  background-color: black;
-  width: 50%;
-  padding: 2%;
-  margin: 5%;
-}
-
-.navbar {
-  background-color: black;
-}
-
-.nav-item:hover {
-  color: #59CCD9;
-}
-.large-frame {
-  margin: auto;
-  display: block;
-}
-
-img {
-  margin: auto;
-  display: block;
-}
-
-#curated {
-  color: white;
-}
-
-#curated-art {
-  background-color: transparent;
-}
-
-.nav-link {
-  background-color: transparent;
-}
-
-.liked-art {
-  background-color: transparent;
-
-}
-
-.liked-art:hover {
-  background-color: transparent;
-
-}
-
 .avatar {
   display: flex;
   align-items: center;
@@ -123,41 +114,72 @@ img {
   width: 80%;
 }
 
+.rounded-circle {
+  max-height: 8em;
+}
+
 .username {
   text-align: left;
 }
 
-.rounded-circle {
-  max-width: 100%;
-  max-height: 8em;
+.user-profile {
+  margin: 4% 0%;
+}
+
+.frame {
+  margin: 5%;
+  background-color: #59CCD9;
+  max-width: 80%;
+  width: fit-content;
+}
+
+.small-frame {
+  margin: 10px 0px;
+}
+
+.large-frame {
+  margin: 2%;
 }
 
 .card {
   background-color: #F2E852;
   max-height: 100%;
   margin: 0px 1%;
-  min-width: 50%;
+  min-width: 38%;
+}
+
+.card-img-top {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.card-title {
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 .carousel {
   display: flex;
   flex-direction: row;
   overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
-  max-height: 500px;
-  margin: 5%;
+  margin: 5% 0%;
   padding: 2%;
 }
 
-.nav-link {
-  width: 100%;
-}
-
-.card-img-top {
+.small-frame img {
   max-width: 100%;
+  background-color: #F2E852;
+  padding: 4%;
 }
 
-.card-title {
-  overflow-wrap: break-word;
+.large-frame img {
+  background-color: #F2E852;
+  padding: 2%;
+  height: 80VH;
+}
+
+.frame img {
+  background-color: #59CCD9;
+  padding: 2%;
+  height: 60VH;
 }
