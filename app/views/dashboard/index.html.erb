@@ -1,42 +1,42 @@
-<div class="row">
-  <div class="col-md-1 mb-1">
+<div class="row user-profile">
+  <div class="col-2 avatar">
     <% if !@liked_art[0].nil? %>
-      <img class="rounded-circle z-depth-2" style="width: 50px" alt="profile picture" src=<%= @liked_art[0].url %>
+    <div class="avatar-frame">
+      <img class="rounded-circle" alt="profile picture" src=<%= @liked_art[0].url %>
       data-holder-rendered="true">
+    </div>
     <% end %>
   </div>
-  <div class="col-md-4 mb-4">
-    <h1 class="text-capitalize"><%= @user.name %></h1>
+  <div class="col-md-8 mb-8">
+    <h1 class="text-capitalize username"><%= @user.name %></h1>
   </div>
 </div>
 <br><br><br><br>
 
-<div class="frame" style="background-color: black; width: 50%; padding: 2%; margin: 5%;">
-  <h2 id = 'curated'>Todays Curated Art Recommendation</h2>
+<div class="frame">
+  <h2>Todays Curated Art Recommendation</h2>
   <% @recommended_art.each do |art| %>
-    <a href= <%= "#{dashboard_artwork_path(art.id)}" %> id = 'curated-art' ><img src= <%= "#{art.url}" %> class="d-block w-100" alt="recommended art" >
-    <p><%= art.title %></p></a>
-    <p><%= art.artist %></p>
+    <a href= <%= "#{dashboard_artwork_path(art.id)}" %> ><img src= <%= "#{art.url}" %> class="curated-art" alt="recommended art">
+    <h4><%= art.title %></h4></a>
+    <h5><%= art.artist %></h5>
   <% end %>
 </div>
 
 <br><br><br><br><br><br>
 
 <div class="row">
-  <div style="overflow-x: scroll; overflow-y: hidden; white-space: nowrap;">
+  <div class="carousel">
     <% total_liked_arts = @liked_art.count %>
     <%0..total_liked_arts.times do |i| %>
-    <div class="col-4 align-items-stretch" style="display: inline-block;">
       <div class="card">
           <a href= <%= "#{dashboard_artwork_path(@liked_art[i].id)}" %> name="image-<%= i %>" ><img src= <%= "#{@liked_art[i].url}" %> class="card-img-top" alt="image-<%= i %>"></a>
-        <div class="card-body" style="height: 125px;">
-          <blockquote class="blockquote mb-0">
-            <p><%= @liked_art[i].title %></p>
-            <footer class="blockquote-footer"><cite title="Source Title"><%= @liked_art[i].artist %></cite></footer>
-          </blockquote>
+        <div class="card-body">
+          <h4 class="card-title">
+            <%= @liked_art[i].title %>
+          </h4>
+          <h5 class="card-subtitle"><%= @liked_art[i].artist %></h5>
         </div>
       </div>
-    </div>
     <%end %>
   </div>
 </div>

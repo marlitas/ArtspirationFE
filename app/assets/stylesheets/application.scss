@@ -1,0 +1,181 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+ @import "bootstrap";
+ @import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@500;600;700&display=swap');
+
+body {
+  background-color: #F244A4;
+  margin-top: 15VH;
+}
+
+img {
+  margin: auto;
+  display: block;
+}
+
+h1, h2, h3, h4 {
+  margin: auto;
+  padding: 2%;
+  text-align: center;
+  color: black;
+}
+
+h1 {
+  font-weight: bold;
+  font-family: 'Azeret Mono', monospace;
+  font-size: 3em;
+  width: 80%;
+}
+
+h2  {
+  font-family: 'Azeret Mono', monospace;
+  font-size: 2em;
+}
+
+h4 {
+  font-size: 1.5em;
+}
+
+a {
+  color: white;
+  padding: 2%;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  margin: 1%;
+}
+
+a:hover {
+  color: #72BF6F;
+}
+
+.navbar {
+  background-color: black;
+  margin-bottom: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.nav-link {
+  background-color: transparent;
+  width: 100%;
+}
+
+.navbar-dark .navbar-brand:hover {
+  background-color: black;
+  color: #72BF6F;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #72BF6F;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+  color: #59CCD9;
+}
+
+.google {
+  background-color: black;
+  width: 50%;
+  font-size: 1.5em;
+  color: white;
+  padding: 2%;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  margin: 1%;
+}
+
+.google:hover {
+  background-color: #F2E852;
+  color: #F244A4;
+  width: 50%;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-frame {
+  width: 80%;
+}
+
+.rounded-circle {
+  max-height: 8em;
+}
+
+.username {
+  text-align: left;
+}
+
+.frame {
+  margin: 5%;
+  background-color: #59CCD9;
+  max-width: 80%;
+  width: fit-content;
+}
+
+.small-frame {
+  margin: 10px 0px;
+}
+
+.large-frame {
+  margin: 2%;
+}
+
+.card {
+  background-color: #F2E852;
+  max-height: 100%;
+  margin: 0px 1%;
+  min-width: 38%;
+}
+
+.card-img-top {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.card-title {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  margin: 5% 0%;
+  padding: 2%;
+}
+
+.small-frame img {
+  max-width: 100%;
+  background-color: #F2E852;
+  padding: 4%;
+}
+
+.large-frame img {
+  background-color: #F2E852;
+  padding: 2%;
+  height: 80VH;
+}
+
+.frame img {
+  background-color: #59CCD9;
+  padding: 2%;
+  height: 60VH;
+}
